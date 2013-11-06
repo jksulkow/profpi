@@ -8,7 +8,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 <script>
 var width = 400;
 var height = 400;
-var numLargeCircles = 8;
+var numLargeCircles = 3;
 var largeCircleX;
 var largeCircleY;
 var largeCircleRad;
@@ -31,24 +31,21 @@ for (var i = 1; i <= numLargeCircles; i++) {
     ctx.fillStyle = "orange";
     ctx.fill();
     
-    dotX = ((largeCircleRad*2)/numberDots)
     for (var j = 1; j <= numberDots; j++) {
         ctx.beginPath();
+        var angle = j * 2 * Math.PI/numberDots;
+        dotX = largeCircleX + Math.cos(angle) * (largeCircleRad * .4);
+        dotY = largeCircleY + Math.sin(angle) * (largeCircleRad * .4);
+        dotRad = largeCircleRad * .2;
         ctx.arc(dotX, dotY, dotRad, 0, 2*Math.PI);
+        ctx.fillStyle = "blue";
+        ctx.fill();
     }
     
     largeCircleX += width/numLargeCircles;
 }
 
-//ctx.beginPath();
-//ctx.arc(pos1,pos1,80,0,2*Math.PI);
-//ctx.fillStyle = "orange";
-//ctx.fill();
-//
-//ctx.beginPath();
-//ctx.arc((pos1-x),pos1,10,0,2*Math.PI);
-//ctx.fillStyle = "blue";
-//ctx.fill();
+
 
 </script> 
 
