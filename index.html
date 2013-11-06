@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="400" height="400" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var width = 400;
+var height = 400;
+var numLargeCircles = 8;
+var largeCircleX;
+var largeCircleY;
+var largeCircleRad;
+
+var numberDots = 3;
+var dotRad;
+var dotX;
+var dotY;
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+
+    largeCircleX = (width/numLargeCircles)/2;
+    largeCircleY = height/2;
+    largeCircleRad = ((width/numLargeCircles)/2) - 2;
+
+for (var i = 1; i <= numLargeCircles; i++) {
+    ctx.beginPath();
+    ctx.arc(largeCircleX, largeCircleY, largeCircleRad, 0, 2*Math.PI);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    
+    dotX = ((largeCircleRad*2)/numberDots)
+    for (var j = 1; j <= numberDots; j++) {
+        ctx.beginPath();
+        ctx.arc(dotX, dotY, dotRad, 0, 2*Math.PI);
+    }
+    
+    largeCircleX += width/numLargeCircles;
+}
+
+//ctx.beginPath();
+//ctx.arc(pos1,pos1,80,0,2*Math.PI);
+//ctx.fillStyle = "orange";
+//ctx.fill();
+//
+//ctx.beginPath();
+//ctx.arc((pos1-x),pos1,10,0,2*Math.PI);
+//ctx.fillStyle = "blue";
+//ctx.fill();
+
+</script> 
+
+</body>
+</html>
